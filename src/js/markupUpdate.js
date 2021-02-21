@@ -1,6 +1,5 @@
-import countriesList from '../templates/countries-list.hbs';
-import oneCountry from '../templates/one-country.hbs';
-import { fetchError, errorQuerySpecific, successQuery, successQueryList } from './notifications.js';
+import resultCountry from '../templates/resultCountry.hbs';
+import { fetchError, foundError, successQuery } from './notifications.js';
 
 
 function updateMarkup(data) {
@@ -9,13 +8,8 @@ function updateMarkup(data) {
         successQuery();
         return;
     }
-    if (data.length > 2 && data.length <= 10) {
-        MarkupList(data);
-        successQueryList();
-        return;
-    }
     if (data.length > 10) {
-        errorQuerySpecific();
+        foundError();
         return;
     } else {
         fetchError();
@@ -24,13 +18,7 @@ function updateMarkup(data) {
 }
 
 function MarkupOne(data) {
-    const markup = oneCountry(data);
+    const markup = resultCountry(data);
     refs.container.insertAdjacentHTML('beforeend', markup);
 }
-
-function MarkupList(data) {
-    const markup = countriesList(data);
-    refs.container.insertAdjacentHTML('beforeend', markup);
-}
-
 export default updateMarkup;

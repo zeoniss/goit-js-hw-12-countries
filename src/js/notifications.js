@@ -12,7 +12,7 @@ function fetchError() {
     });
 }
 
-function errorQuerySpecific() {
+function foundError() {
     error({
         title: 'Too many matches found!',
         text: 'Please, create more specific query',
@@ -27,13 +27,7 @@ function successQuery() {
     });
 }
 
-function successQueryList() {
-    alert({
-        title: 'Success',
-        text: `Here are countries matching on your request`,
-        delay: 1000,
-    });
-}
+
 defaults.styling = 'angeler';
 defaults.icons = 'angeler';
-export { fetchError, errorQuerySpecific, successQuery, successQueryList };
+export { fetchError, foundError, successQuery };
