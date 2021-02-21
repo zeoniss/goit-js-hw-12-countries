@@ -4,10 +4,7 @@ import '@pnotify/core/dist/Angeler.css';
 import { defaults } from '@pnotify/core';
 import { error, alert } from '@pnotify/core';
 
-defaults.styling = 'angeler';
-defaults.icons = 'angeler';
-
-function errorFetch() {
+function fetchError() {
     error({
         title: 'Oh No!',
         text: `Such country doesn't exist`,
@@ -26,7 +23,6 @@ function errorQuerySpecific() {
 function successQuery() {
     alert({
         title: 'Success',
-        // text: `Such country doesn't exist`,
         delay: 1000,
     });
 }
@@ -38,5 +34,6 @@ function successQueryList() {
         delay: 1000,
     });
 }
-
-export { errorFetch, errorQuerySpecific, successQuery, successQueryList };
+defaults.styling = 'angeler';
+defaults.icons = 'angeler';
+export { fetchError, errorQuerySpecific, successQuery, successQueryList };

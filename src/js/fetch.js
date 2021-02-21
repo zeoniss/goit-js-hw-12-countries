@@ -1,10 +1,10 @@
-import { errorFetch } from './notifications.js';
+import { fetchError } from './notifications.js';
 
-function fetchCountry(searchQuery) {
+function fetch(searchQuery) {
     const url = `https://restcountries.eu/rest/v2/name/${searchQuery}`;
     return fetch(url)
         .then(response => response.json())
         .then(data => data)
-        .catch(() => errorFetch());
+        .catch(() => fetchError());
 }
-export default fetchCountry;
+export default fetch;
